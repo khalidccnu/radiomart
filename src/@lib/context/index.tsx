@@ -1,3 +1,5 @@
+import { queryClient } from '@lib/config';
+import { QueryClientProvider } from '@tanstack/react-query';
 import type { ThemeConfig } from 'antd';
 import { ConfigProvider } from 'antd';
 import { NextFont } from 'next/dist/compiled/@next/font';
@@ -35,10 +37,12 @@ export const Providers = ({ nextFont, children }: TProps) => {
   };
 
   return (
-    <ConfigProvider theme={theme}>
-      <main role="main" id="__main" className={nextFont?.className}>
-        {children}
-      </main>
-    </ConfigProvider>
+    <QueryClientProvider client={queryClient}>
+      <ConfigProvider theme={theme}>
+        <main role="main" id="__main" className={nextFont?.className}>
+          {children}
+        </main>
+      </ConfigProvider>
+    </QueryClientProvider>
   );
 };
