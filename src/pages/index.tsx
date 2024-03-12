@@ -15,7 +15,7 @@ const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
   return (
     <PageWrapper>
       <HeroBannerSection />
-      <LatestProductSection className="pb-14 md:pt-14" data={latestProducts?.data} />
+      <LatestProductSection className="py-14" data={latestProducts?.data} />
       <PopularProductSection className="py-14" data={popularProducts?.data} />
     </PageWrapper>
   );

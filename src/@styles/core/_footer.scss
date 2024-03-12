@@ -20,13 +20,19 @@ footer {
       display: flex;
       gap: 0.5rem;
       .social_link {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 2rem;
-        height: 2rem;
-        background-color: #192947;
-        color: var(--color-gray-100);
+        a {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 2rem;
+          height: 2rem;
+          background-color: #192947;
+          color: var(--color-gray-100);
+          transition: color 500ms;
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
       }
     }
   }

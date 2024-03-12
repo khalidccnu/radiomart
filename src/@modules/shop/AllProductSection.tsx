@@ -1,8 +1,12 @@
-import { IProduct, IProductsResponse } from '@apis/shop/interfaces';
+import { IProductsResponse } from '@apis/shop/interfaces';
+import { TId } from '@base/interfaces';
+import { messages } from '@lib/constant';
+import { addCart, removeCart } from '@lib/redux/cart/cartSlice';
+import { useAppDispatch } from '@lib/redux/hooks';
 import { $$, cn } from '@lib/utils';
 import ProductCard from '@modules/ProductCard';
 import type { PaginationProps } from 'antd';
-import { Pagination } from 'antd';
+import { Pagination, message } from 'antd';
 import { ClassValue } from 'clsx';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -21,12 +25,29 @@ const paginationItemRender: PaginationProps['itemRender'] = (_, type, originalEl
 
 const AllProductSection: React.FC<IProps> = ({ className, products }) => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [messageApi, messageHolder] = message.useMessage();
+
+  const handleCart = (isCart: boolean, id: TId) => {
+    const short = true;
+
+    if (isCart) {
+      dispatch(removeCart({ short, id }));
+      messageApi.success(messages.cart.remove);
+    } else {
+      dispatch(addCart({ short, id }));
+      messageApi.success(messages.cart.add);
+    }
+  };
 
   return (
     <section className={cn(className, 'all_product_section')}>
+      {messageHolder}
       <div className="container">
         <div className="wrapper">
-          {products?.data?.map((product: IProduct) => <ProductCard key={product?._id} product={product} />)}
+          {products?.data?.map((product) => (
+            <ProductCard key={product?._id} product={product} handleCart={handleCart} />
+          ))}
         </div>
         <Pagination
           className="products_pagination"

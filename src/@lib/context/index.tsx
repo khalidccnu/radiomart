@@ -1,9 +1,11 @@
 import { queryClient } from '@lib/config';
+import store from '@lib/redux/store';
 import { QueryClientProvider } from '@tanstack/react-query';
 import type { ThemeConfig } from 'antd';
 import { ConfigProvider } from 'antd';
 import { NextFont } from 'next/dist/compiled/@next/font';
 import React from 'react';
+import { Provider } from 'react-redux';
 
 type TProps = {
   nextFont?: NextFont;
@@ -37,12 +39,14 @@ export const Providers = ({ nextFont, children }: TProps) => {
   };
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ConfigProvider theme={theme}>
-        <main role="main" id="__main" className={nextFont?.className}>
-          {children}
-        </main>
-      </ConfigProvider>
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <ConfigProvider theme={theme}>
+          <main role="main" id="__main" className={nextFont?.className}>
+            {children}
+          </main>
+        </ConfigProvider>
+      </QueryClientProvider>
+    </Provider>
   );
 };
