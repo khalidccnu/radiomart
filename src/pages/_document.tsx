@@ -1,10 +1,10 @@
-import { Head, Html, Main, NextScript } from "next/document";
+import { Head, Html, Main, NextScript } from 'next/document';
 
 const MyDocument = () => {
   return (
     <Html lang="en">
       <Head>
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicons/favicon.svg" />
       </Head>
       <body>
         <Main />

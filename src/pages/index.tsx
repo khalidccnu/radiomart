@@ -1,9 +1,7 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import React from 'react';
 
 const HomePage = () => {
-  return <main className={inter.className}></main>;
+  return <React.Fragment></React.Fragment>;
 };
 
 export default HomePage;
