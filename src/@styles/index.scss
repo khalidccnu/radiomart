@@ -5,6 +5,12 @@
 @import './utils/index.scss';
 @import './core/index.scss';
 
+// Swiper
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/autoplay';
+
 // Scrollbar Customize
 ::-webkit-scrollbar {
   width: 0.25rem;
@@ -17,6 +23,16 @@
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-primary);
   border-radius: 1rem;
+}
+
+.section_title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: capitalize;
+  @include lg {
+    font-size: 2rem;
+  }
 }
 
 // ant customization
