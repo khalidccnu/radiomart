@@ -1,7 +1,12 @@
-import React from 'react';
+import PageWrapper from '@base/container/PageWrapper';
+import HeroBannerSection from '@modules/home/HeroBannerSection';
 
 const HomePage = () => {
-  return <React.Fragment></React.Fragment>;
+  return (
+    <PageWrapper>
+      <HeroBannerSection />
+    </PageWrapper>
+  );
 };
 
 export default HomePage;
