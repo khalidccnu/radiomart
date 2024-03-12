@@ -1,0 +1,40 @@
+header {
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: normal;
+  .header_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include md {
+      justify-content: flex-end;
+    }
+    .header_item {
+      padding: 1rem;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    .social_links {
+      .social_links_wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        .social_link {
+          transition: color 500ms;
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
+      }
+    }
+    .currency {
+      border-inline: 1px solid var(--color-gray-700);
+    }
+  }
+}

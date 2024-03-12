@@ -3,3 +3,4 @@ export * from './_cookies';
 export * from './_errorHandler';
 export * from './_session';
 export * from './_storage';
+export * from './_toolbox';
