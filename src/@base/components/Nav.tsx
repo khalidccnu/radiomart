@@ -20,7 +20,7 @@ const navLinks = [
   },
   {
     name: 'shop',
-    path: $$.appendPagination(paths.shop, 1, 9),
+    path: $$.appendPagination(paths.shop, 1, 8),
   },
   {
     name: 'about',

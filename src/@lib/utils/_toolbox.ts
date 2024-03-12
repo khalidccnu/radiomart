@@ -1,3 +1,5 @@
+import { ENV } from '.environments';
+
 export const $$ = {
   isEmpty: function (value: any): boolean {
     return (
@@ -12,6 +14,11 @@ export const $$ = {
 
   isNotEmpty: function (value: any): boolean {
     return value !== null && value !== undefined && value !== '' && value.length !== 0;
+  },
+
+  toSafeNumber: function (value: any): number {
+    if (this.isNotEmpty(value)) return Number(value);
+    return 0;
   },
 
   isValidObject: function (value: any): boolean {
@@ -58,5 +65,17 @@ export const $$ = {
 
   appendPagination: function (path: string, page = 1, limit = 10): string {
     return `${path}?page=${page}&limit=${limit}`;
+  },
+
+  withStorageUrl: function (path: string): string {
+    return ENV.storageUrl + path;
+  },
+
+  withCurrency: function (amount: number, symbol: string = '৳'): string {
+    return symbol + ' ' + this.toSafeNumber(amount);
+  },
+
+  toDiscountPrice: function (amount: number, percentage: number): number {
+    return Math.ceil(this.toSafeNumber(amount) - (this.toSafeNumber(amount) * this.toSafeNumber(percentage)) / 100);
   },
 };

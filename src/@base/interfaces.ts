@@ -1,5 +1,15 @@
 export type TId = string | number;
 
+export interface IImageResponse {
+  fileId: TId;
+  name: string;
+  fileType: string;
+  mime: string;
+  filePath: string;
+  url: string;
+  thumbnail: string;
+}
+
 export interface IMetaResponse {
   total: number;
   page: number;
