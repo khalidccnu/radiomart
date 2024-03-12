@@ -1,3 +1,4 @@
+import Footer from '@base/components/Footer';
 import Header from '@base/components/Header';
 import Nav from '@base/components/Nav';
 import React, { useEffect, useRef, useState } from 'react';
@@ -26,6 +27,7 @@ const LandingLayout: React.FC<IProps> = ({ children }) => {
       <Header />
       <Nav navRef={navRef} isCollapsed={isCollapsed} setCollapsed={() => setCollapsed((prev) => !prev)} />
       {children}
+      <Footer />
     </React.Fragment>
   );
 };
