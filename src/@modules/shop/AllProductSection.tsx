@@ -1,11 +1,11 @@
 import { IProduct, IProductsResponse } from '@apis/shop/interfaces';
 import { $$, cn } from '@lib/utils';
+import ProductCard from '@modules/ProductCard';
 import type { PaginationProps } from 'antd';
 import { Pagination } from 'antd';
 import { ClassValue } from 'clsx';
 import { useRouter } from 'next/router';
 import React from 'react';
-import ProductCard from './ProductCard';
 
 interface IProps {
   className?: ClassValue;

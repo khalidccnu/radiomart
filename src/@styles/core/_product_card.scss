@@ -1,0 +1,90 @@
+.product_card {
+  &:hover {
+    .image_container {
+      img {
+        transform: translateY(-1.5rem);
+      }
+      .quick_view {
+        transform: translate(-50%, -100%);
+      }
+    }
+  }
+  .image_container {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    .discount_badge {
+      position: absolute;
+      top: 1.125rem;
+      left: 1.125rem;
+      background-color: var(--color-white);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .btn_container {
+      position: absolute;
+      top: 1.125rem;
+      right: 1.125rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .wish_icon,
+      .cart_icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: var(--color-white);
+        border-radius: 100%;
+        box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.05);
+      }
+    }
+    .quick_view {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--color-black);
+      padding: 0.75rem 2rem;
+      border: 0.3rem solid var(--color-white);
+      border-radius: 2rem;
+      color: var(--color-white);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: transform 500ms linear 50ms;
+    }
+    img {
+      position: relative;
+      width: 100%;
+      height: auto;
+      border-radius: 1.5rem;
+      transition: transform 500ms;
+      z-index: -1;
+    }
+  }
+  .content_wrapper {
+    margin-top: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    .title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.4;
+      text-transform: capitalize;
+      @apply line-clamp-1;
+    }
+    .price {
+      .discount {
+        font-weight: 500;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

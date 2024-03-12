@@ -31,13 +31,14 @@ export interface IBaseEntity {
 }
 
 export interface IBaseFilter {
-  searchTerm?: string;
   page?: number;
   limit?: number;
+  discount?: boolean;
   sort?: {
     type: 'asc' | 'desc';
     by: string;
   };
+  searchTerm?: string;
 }
 
 export interface IBaseServices<Entity = any, FilterOptions = any, CreatePayload = any, UpdatePayload = CreatePayload> {
