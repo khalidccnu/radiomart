@@ -39,6 +39,7 @@ export interface IBaseFilter {
     by: string;
   };
   searchTerm?: string;
+  ids?: boolean;
 }
 
 export interface IBaseServices<Entity = any, FilterOptions = any, CreatePayload = any, UpdatePayload = CreatePayload> {

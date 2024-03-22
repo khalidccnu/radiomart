@@ -1,6 +1,7 @@
+import { IProduct } from '@apis/shop/interfaces';
 import { TId } from '@base/interfaces';
-import { storage } from '@lib/utils';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { $$, storage } from '@lib/utils';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface ICartItem {
   id: TId;
@@ -12,8 +13,10 @@ interface ICartCalculation {
 }
 
 interface ICartItemModification {
-  id: TId;
+  id?: TId;
   short?: boolean;
+  quantity?: number;
+  product?: Array<Partial<IProduct & { quantity: number }>>;
 }
 
 interface IState {
@@ -52,12 +55,27 @@ const cartSlice = createSlice({
 
       storage.setData('cart', JSON.stringify(state.cart));
     },
+    updateCart: (state, action: PayloadAction<ICartItemModification>) => {
+      const itemIdx = state.cart.findIndex((item) => item.id === action.payload.id);
+      state.cart[itemIdx].quantity = action.payload.quantity;
+
+      storage.setData('cart', JSON.stringify(state.cart));
+    },
     clearCart: (state) => {
       state.cart = [];
       storage.removeData('cart');
     },
+    executeCartCalc: (state, action: PayloadAction<ICartItemModification>) => {
+      state.cartCalculation.total = action.payload.product?.reduce(
+        (total, current) =>
+          total +
+          current?.quantity *
+            (current?.discount ? $$.toDiscountPrice(current?.price, current?.discount_percentage) : current?.price),
+        0,
+      );
+    },
   },
 });
 
-export const { addCart, removeCart, clearCart } = cartSlice.actions;
+export const { addCart, removeCart, updateCart, clearCart, executeCartCalc } = cartSlice.actions;
 export default cartSlice.reducer;

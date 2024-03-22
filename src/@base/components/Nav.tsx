@@ -89,7 +89,7 @@ const Nav: React.FC<IProps> = ({ navRef, isCollapsed, setCollapsed }) => {
               </Link>
             </li>
             <li className="icon bag_icon">
-              <Link href="#">
+              <Link href={paths.cart}>
                 <FaBagShopping size={22} />
               </Link>
             </li>

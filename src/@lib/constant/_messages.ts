@@ -5,5 +5,6 @@ export const messages = {
   cart: {
     add: 'Product has been added to cart successfully!',
     remove: 'Product has been removed from cart successfully!',
+    clear: 'Cart has been cleared!',
   },
 };
