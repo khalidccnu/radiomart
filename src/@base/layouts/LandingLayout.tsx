@@ -1,7 +1,8 @@
-import Footer from '@base/components/Footer';
-import Header from '@base/components/Header';
-import Nav from '@base/components/Nav';
 import React, { useEffect, useRef, useState } from 'react';
+import Footer from './elements/Footer';
+import Header from './elements/Header';
+import Nav from './elements/Nav';
+import Cursor from './elements/Cursor';
 
 interface IProps {
   children: React.ReactNode;
@@ -23,12 +24,12 @@ const LandingLayout: React.FC<IProps> = ({ children }) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <Cursor>
       <Header />
       <Nav navRef={navRef} isCollapsed={isCollapsed} setCollapsed={() => setCollapsed((prev) => !prev)} />
       {children}
       <Footer />
-    </React.Fragment>
+    </Cursor>
   );
 };
 

@@ -40,3 +40,34 @@
   background-color: var(--color-primary);
   box-shadow: none !important;
 }
+
+// custom cursor
+.first_cursor {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  z-index: 1111;
+  pointer-events: none;
+  transition: 300ms ease;
+  &.active {
+    width: 7rem;
+    height: 7rem;
+    opacity: 0.3;
+  }
+}
+
+.second_cursor {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  border: 0.1rem solid var(--color-primary);
+  border-radius: 50%;
+  z-index: 1111;
+  pointer-events: none;
+  transition: 300ms ease;
+  &.active {
+    opacity: 0;
+  }
+}
