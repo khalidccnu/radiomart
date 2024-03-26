@@ -31,7 +31,7 @@ const LandingLayout: React.FC<IProps> = ({ children }) => {
       <Cursor>
         <Header />
         <Nav navRef={navRef} isCollapsed={isCollapsed} setCollapsed={() => setCollapsed((prev) => !prev)} />
-        {children}
+        <div className="relative bg-[var(--color-white)] z-10">{children}</div>
         <Footer />
       </Cursor>
     </React.Fragment>

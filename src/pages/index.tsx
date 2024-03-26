@@ -13,7 +13,7 @@ interface IProps {
 
 const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
   return (
-    <PageWrapper>
+    <PageWrapper title="Home">
       <HeroBannerSection />
       <LatestProductSection className="py-14" data={latestProducts?.data} />
       <PopularProductSection className="py-14" data={popularProducts?.data} />

@@ -1,5 +1,6 @@
 import { queryClient } from '@lib/config';
 import store from '@lib/redux/store';
+import ReactLenis from '@studio-freight/react-lenis';
 import { QueryClientProvider } from '@tanstack/react-query';
 import type { ThemeConfig } from 'antd';
 import { ConfigProvider } from 'antd';
@@ -42,6 +43,7 @@ export const Providers = ({ nextFont, children }: TProps) => {
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <ConfigProvider theme={theme}>
+          <ReactLenis root options={{ duration: 3 }} />
           <main role="main" id="__main" className={nextFont?.className}>
             {children}
           </main>
