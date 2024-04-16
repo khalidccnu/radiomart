@@ -1,0 +1,68 @@
+.checkout_form_section {
+  .wrapper {
+    max-width: 48rem;
+    margin-inline: auto;
+    .separate_box {
+      margin-bottom: 1rem;
+      .title {
+        font-weight: 600;
+      }
+    }
+    .contact_info {
+      .have_account {
+        display: flex;
+        gap: 0.5rem;
+        color: var(--color-gray-500);
+        a {
+          color: var(--color-secondary-black);
+          transition: color 500ms;
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
+      }
+    }
+    .ant-form {
+      .ant-form-item {
+        margin-bottom: 0;
+        input {
+          &[type='text'],
+          &[type='email'] {
+            color: var(--color-gray-400);
+            line-height: 24px;
+            padding: 8px 16px;
+            border: 1px solid var(--color-gray-300);
+            border-radius: 8px;
+          }
+        }
+        .ant-select {
+          height: auto;
+          .ant-select-selector {
+            color: var(--color-gray-400);
+            line-height: 24px;
+            padding: 8px 16px;
+            border: 1px solid var(--color-gray-300);
+            border-radius: 8px;
+            &::after {
+              line-height: 24px;
+            }
+            .ant-select-selection-placeholder {
+              line-height: 24px;
+            }
+            .ant-select-selection-item {
+              line-height: 24px;
+            }
+          }
+        }
+        .ant-picker {
+          color: var(--color-gray-400);
+          line-height: 24px;
+          width: 100%;
+          padding: 8px 16px;
+          border: 1px solid var(--color-gray-300);
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}

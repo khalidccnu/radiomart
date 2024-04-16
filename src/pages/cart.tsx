@@ -6,7 +6,7 @@ import { Col, Row } from 'antd';
 const CartPage = () => {
   return (
     <PageWrapper title="Cart">
-      <section className="py-20">
+      <section className="py-14">
         <div className="container">
           <Row
             gutter={[

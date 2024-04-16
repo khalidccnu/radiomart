@@ -1,10 +1,12 @@
-import { messages } from '@lib/constant';
+import { messages, paths } from '@lib/constant';
 import { clearCart } from '@lib/redux/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@lib/redux/hooks';
 import { $$ } from '@lib/utils';
 import { Button, Card, Popconfirm, Space, message } from 'antd';
+import { useRouter } from 'next/router';
 
 const CartCalcCard = () => {
+  const router = useRouter();
   const [messageApi, messageHolder] = message.useMessage();
   const { cart, cartCalculation } = useAppSelector((store) => store.cartSlice);
   const dispatch = useAppDispatch();
@@ -28,7 +30,7 @@ const CartCalcCard = () => {
             Clear Cart
           </Button>
         </Popconfirm>
-        <Button type="primary" disabled={cart?.length < 1}>
+        <Button type="primary" disabled={cart?.length < 1} onClick={() => router.push(paths.checkout)}>
           Proceed to Checkout
         </Button>
       </Space>

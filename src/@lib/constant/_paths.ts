@@ -3,6 +3,7 @@ export const paths = {
   shop: '/shop',
   about: '/about',
   cart: '/cart',
+  checkout: '/checkout',
   socialLink: {
     facebook: 'https://www.facebook.com',
     instagram: 'https://www.instagram.com',
