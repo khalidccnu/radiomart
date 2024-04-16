@@ -7,6 +7,7 @@ import { getAllDistrict, getAllDivision, getAllUnion, getAllUpazila } from 'bd-d
 import { ClassValue } from 'clsx';
 import dayjs from 'dayjs';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { IoCalendar } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
@@ -16,16 +17,22 @@ interface IProps {
 }
 
 const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const [districts, setDistricts] = useState([]);
   const [upazillas, setUpazillas] = useState([]);
   const [unions, setUnions] = useState([]);
 
+  const onFinish = () => {
+    router.push(paths.completeOrder);
+    dispatch(clearCart());
+  };
+
   return (
     <section className={cn(className, 'checkout_form_section')}>
       <div className="container">
         <div className="wrapper">
-          <Form layout="vertical" onFinish={() => dispatch(clearCart())}>
+          <Form layout="vertical" onFinish={onFinish}>
             <Row gutter={[{ xs: 0 }, { xs: 24, md: 24 }]}>
               <Col xs={24}>
                 <div className="contact_info separate_box">

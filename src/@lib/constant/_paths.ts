@@ -4,6 +4,7 @@ export const paths = {
   about: '/about',
   cart: '/cart',
   checkout: '/checkout',
+  completeOrder: '/complete-order',
   socialLink: {
     facebook: 'https://www.facebook.com',
     instagram: 'https://www.instagram.com',
