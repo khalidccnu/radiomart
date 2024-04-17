@@ -1,4 +1,4 @@
-import { queryClient } from '@lib/config';
+import { DayjsConfig, queryClient } from '@lib/config';
 import store from '@lib/redux/store';
 import ReactLenis from '@studio-freight/react-lenis';
 import { QueryClientProvider } from '@tanstack/react-query';
@@ -14,6 +14,7 @@ type TProps = {
 };
 
 export const Providers = ({ nextFont, children }: TProps) => {
+  DayjsConfig();
   const theme: ThemeConfig = {
     token: {
       fontFamily: 'var(--font-roboto)',

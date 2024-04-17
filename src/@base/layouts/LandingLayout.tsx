@@ -1,9 +1,9 @@
+import Preloader from '@base/components/Preloader';
 import React, { useEffect, useRef, useState } from 'react';
 import AnimatedCursor from 'react-animated-cursor';
 import Footer from './elements/Footer';
 import Header from './elements/Header';
 import Nav from './elements/Nav';
-import Preloader from './elements/Preloader';
 
 interface IProps {
   children: React.ReactNode;

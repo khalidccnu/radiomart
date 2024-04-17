@@ -18,6 +18,7 @@ interface IProps {
 
 const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
   const router = useRouter();
+  const [formInstance] = Form.useForm();
   const dispatch = useAppDispatch();
   const [districts, setDistricts] = useState([]);
   const [upazillas, setUpazillas] = useState([]);
@@ -32,7 +33,7 @@ const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
     <section className={cn(className, 'checkout_form_section')}>
       <div className="container">
         <div className="wrapper">
-          <Form layout="vertical" onFinish={onFinish}>
+          <Form layout="vertical" form={formInstance} onFinish={onFinish}>
             <Row gutter={[{ xs: 0 }, { xs: 24, md: 24 }]}>
               <Col xs={24}>
                 <div className="contact_info separate_box">
@@ -85,6 +86,7 @@ const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
                     >
                       <Select
                         showSearch
+                        virtual={false}
                         placeholder="Division"
                         suffixIcon={<MdOutlineKeyboardArrowDown size={24} />}
                         onChange={(_, option: any) => setDistricts(getAllDistrict('en')[option.key])}
@@ -110,6 +112,7 @@ const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
                     >
                       <Select
                         showSearch
+                        virtual={false}
                         placeholder="District"
                         suffixIcon={<MdOutlineKeyboardArrowDown size={24} />}
                         onChange={(_, option: any) => setUpazillas(getAllUpazila('en')[option.key])}
@@ -135,6 +138,7 @@ const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
                     >
                       <Select
                         showSearch
+                        virtual={false}
                         placeholder="Upazilla"
                         suffixIcon={<MdOutlineKeyboardArrowDown size={24} />}
                         onChange={(_, option: any) => setUnions(getAllUnion('en')[option.key])}
@@ -160,6 +164,7 @@ const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
                     >
                       <Select
                         showSearch
+                        virtual={false}
                         placeholder="Union"
                         suffixIcon={<MdOutlineKeyboardArrowDown size={24} />}
                         filterOption={(input, option: any) => option.value.toLowerCase().includes(input.toLowerCase())}
