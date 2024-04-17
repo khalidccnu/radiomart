@@ -25,6 +25,22 @@ const LandingLayout: React.FC<IProps> = ({ children }) => {
     return () => targetElem.removeEventListener('click', handleNav);
   }, []);
 
+  useEffect(() => {
+    const disableInspect = (e) => e.preventDefault();
+
+    window.addEventListener('contextmenu', disableInspect);
+    window.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'J') e.preventDefault();
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))) e.preventDefault();
+    });
+
+    return () => {
+      window.removeEventListener('contextmenu', disableInspect);
+      window.removeEventListener('keydown', disableInspect);
+      document.removeEventListener('keydown', disableInspect);
+    };
+  }, []);
+
   return (
     <React.Fragment>
       {isPreloader && <Preloader />}
