@@ -13,7 +13,7 @@ const FunFactSection: React.FC<IProps> = ({ className }) => {
   return (
     <section className={cn('fun_fact_section', className)}>
       <div className="container">
-        <div className="wrapper grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+        <div className="wrapper grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
             <span className="flex justify-center items-center text-[var(--color-primary)] text-3xl w-16 h-16 mx-auto border-2 border-[var(--color-primary)] border-dotted rounded">
               <FaUsers />

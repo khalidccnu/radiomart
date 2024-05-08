@@ -13,7 +13,7 @@ const WhatOfferSection: React.FC<IProps> = ({ className }) => {
   return (
     <section className={cn('what_offer_section', className)}>
       <div className="container">
-        <div className="wrapper grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+        <div className="wrapper grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
             <span className="flex justify-center items-center bg-yellow-500/20 text-yellow-500 text-3xl w-16 h-16 mx-auto rounded">
               <MdFlashOn />
