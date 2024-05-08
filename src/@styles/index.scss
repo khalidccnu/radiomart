@@ -35,6 +35,11 @@
   }
 }
 
+.section_description {
+  color: var(--color-gray-500);
+  font-size: 1.2rem;
+}
+
 // ant customization
 .ant-btn-primary {
   background-color: var(--color-primary);

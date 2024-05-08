@@ -3,7 +3,7 @@ import { TId } from '@base/interfaces';
 import { messages } from '@lib/constant';
 import { addCart, removeCart } from '@lib/redux/cart/cartSlice';
 import { useAppDispatch } from '@lib/redux/hooks';
-import { cn } from '@lib/utils';
+import { $$, cn, imageNotFound } from '@lib/utils';
 import { message } from 'antd';
 import { ClassValue } from 'clsx';
 import React from 'react';
@@ -34,8 +34,16 @@ const RecommendedProductSection: React.FC<IProps> = ({ className, data }) => {
   };
 
   return (
-    <section className={cn('recommended_product_section', className)}>
+    <section className={cn('recommended_product_section relative', className)}>
       {messageHolder}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5">
+        <img
+          className="w-full h-full"
+          src={$$.withStorageUrl('/bookland/pattern/random-square-halftone.png')}
+          alt=""
+          onError={imageNotFound}
+        />
+      </div>
       <div className="container">
         <h2 className="section_title">Recommended Products</h2>
         <div className="wrapper slider_wrapper relative mt-8">
