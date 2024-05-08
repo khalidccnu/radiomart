@@ -1,0 +1,12 @@
+.product_on_sale_section {
+  .slider_wrapper {
+    .slider_controller_wrapper {
+      .sp_pagination {
+        width: fit-content;
+        .swiper-pagination-bullet {
+          background-color: var(--color-primary);
+        }
+      }
+    }
+  }
+}

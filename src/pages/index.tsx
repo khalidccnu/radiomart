@@ -5,6 +5,7 @@ import FunFactSection from '@modules/home/FunFactSection';
 import HeroBannerSection from '@modules/home/HeroBannerSection';
 import LatestProductSection from '@modules/home/LatestProductSection';
 import PopularProductSection from '@modules/home/PopularProductSection';
+import ProductOnSaleSection from '@modules/home/ProductOnSaleSection';
 import RecommendedProductSection from '@modules/home/RecommendedProductSection';
 import TestimonialSection from '@modules/home/TestimonialSection';
 import WhatOfferSection from '@modules/home/WhatOfferSection';
@@ -25,6 +26,7 @@ const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
       <RecommendedProductSection className="py-14" data={latestProducts?.data} />
       <TestimonialSection className="py-14" />
       <FunFactSection className="pb-14" />
+      <ProductOnSaleSection className="py-14" data={popularProducts?.data} />
     </PageWrapper>
   );
 };
