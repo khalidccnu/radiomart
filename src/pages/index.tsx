@@ -1,6 +1,7 @@
 import { IProductsResponse } from '@apis/shop/interfaces';
 import { ProductsService } from '@apis/shop/services';
 import PageWrapper from '@base/container/PageWrapper';
+import FunFactSection from '@modules/home/FunFactSection';
 import HeroBannerSection from '@modules/home/HeroBannerSection';
 import LatestProductSection from '@modules/home/LatestProductSection';
 import PopularProductSection from '@modules/home/PopularProductSection';
@@ -21,6 +22,7 @@ const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
       <PopularProductSection className="py-14" data={popularProducts?.data} />
       <RecommendedProductSection className="py-14" data={latestProducts?.data} />
       <TestimonialSection className="py-14" />
+      <FunFactSection className="pb-14" />
     </PageWrapper>
   );
 };
