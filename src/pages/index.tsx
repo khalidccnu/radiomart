@@ -4,6 +4,7 @@ import PageWrapper from '@base/container/PageWrapper';
 import HeroBannerSection from '@modules/home/HeroBannerSection';
 import LatestProductSection from '@modules/home/LatestProductSection';
 import PopularProductSection from '@modules/home/PopularProductSection';
+import RecommendedProductSection from '@modules/home/RecommendedProductSection';
 import { GetStaticProps, NextPage } from 'next';
 
 interface IProps {
@@ -16,6 +17,7 @@ const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
     <PageWrapper title="Home">
       <HeroBannerSection />
       <LatestProductSection className="py-14" data={latestProducts?.data} />
+      <RecommendedProductSection className="py-14" data={latestProducts?.data} />
       <PopularProductSection className="py-14" data={popularProducts?.data} />
     </PageWrapper>
   );
