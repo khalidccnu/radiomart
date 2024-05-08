@@ -7,6 +7,7 @@ import LatestProductSection from '@modules/home/LatestProductSection';
 import PopularProductSection from '@modules/home/PopularProductSection';
 import RecommendedProductSection from '@modules/home/RecommendedProductSection';
 import TestimonialSection from '@modules/home/TestimonialSection';
+import WhatOfferSection from '@modules/home/WhatOfferSection';
 import { GetStaticProps, NextPage } from 'next';
 
 interface IProps {
@@ -19,6 +20,7 @@ const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
     <PageWrapper title="Home">
       <HeroBannerSection />
       <LatestProductSection className="py-14" data={latestProducts?.data} />
+      <WhatOfferSection className="py-14" />
       <PopularProductSection className="py-14" data={popularProducts?.data} />
       <RecommendedProductSection className="py-14" data={latestProducts?.data} />
       <TestimonialSection className="py-14" />
