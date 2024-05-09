@@ -24,7 +24,7 @@ const RecommendedProductCard: React.FC<IProps> = ({ className, product, handleCa
 
   return (
     <div className={cn('recommended_product_card', className)}>
-      <div className="w-full h-96">
+      <div className="h-96">
         <img
           className="h-full w-full object-cover rounded-lg"
           src={$$.withStorageUrl(product?.image?.filePath)}
@@ -37,7 +37,7 @@ const RecommendedProductCard: React.FC<IProps> = ({ className, product, handleCa
         <p className="block text-[var(--color-primary)]">
           <span
             className={cn({
-              'line-through text-xs': product?.discount,
+              'line-through text-xs mr-1': product?.discount,
             })}
           >
             {$$.withCurrency(product?.price)}

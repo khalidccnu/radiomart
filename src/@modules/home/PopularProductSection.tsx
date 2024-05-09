@@ -4,10 +4,10 @@ import { messages } from '@lib/constant';
 import { addCart, removeCart } from '@lib/redux/cart/cartSlice';
 import { useAppDispatch } from '@lib/redux/hooks';
 import { cn } from '@lib/utils';
-import ProductCard from '@modules/ProductCard';
 import { message } from 'antd';
 import { ClassValue } from 'clsx';
 import React from 'react';
+import StandardProductCard from './StandardProductCard';
 
 interface IProps {
   className?: ClassValue;
@@ -36,7 +36,9 @@ const PopularProductSection: React.FC<IProps> = ({ className, data }) => {
       <div className="container">
         <h2 className="section_title">Most Popular Products</h2>
         <div className="wrapper">
-          {data?.map((elem) => <ProductCard key={elem?._id} product={elem} handleCart={handleCart} />)}
+          {data?.map((elem, idx) => (
+            <StandardProductCard key={elem?._id} idx={idx} product={elem} handleCart={handleCart} />
+          ))}
         </div>
       </div>
     </section>

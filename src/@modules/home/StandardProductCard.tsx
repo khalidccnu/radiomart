@@ -1,18 +1,22 @@
 import { IProduct } from '@apis/shop/interfaces';
+import BaseModal from '@base/components/BaseModal';
 import { TId } from '@base/interfaces';
 import { useAppSelector } from '@lib/redux/hooks';
 import { $$, cn, imageNotFound } from '@lib/utils';
 import { ClassValue } from 'clsx';
+import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { BsBasket2, BsFillBasket2Fill, BsHeart } from 'react-icons/bs';
+import ProductQuickView from './ProductQuickView';
 
 interface IProps {
+  idx: number;
   className?: ClassValue;
   product: IProduct;
   handleCart: (isCart: boolean, id: TId) => void;
 }
 
-const ProductCard: React.FC<IProps> = ({ className, product, handleCart }) => {
+const StandardProductCard: React.FC<IProps> = ({ idx, className, product, handleCart }) => {
   const [isCart, setCart] = useState(false);
   const { cart } = useAppSelector((store) => store.cartSlice);
 
@@ -22,7 +26,16 @@ const ProductCard: React.FC<IProps> = ({ className, product, handleCart }) => {
   }, [cart, product?._id]);
 
   return (
-    <div className={cn('product_card', className)}>
+    <motion.div
+      className={cn('product_card', className)}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.5,
+        delay: idx * 0.1,
+      }}
+      viewport={{ once: true }}
+    >
       <div className="image_container">
         {product?.discount && <span className="discount_badge">Get {product?.discount_percentage}% Off</span>}
         <div className="btn_container">
@@ -33,9 +46,16 @@ const ProductCard: React.FC<IProps> = ({ className, product, handleCart }) => {
             {isCart ? <BsFillBasket2Fill size={20} /> : <BsBasket2 size={20} />}
           </button>
         </div>
-        <button type="button" className="quick_view">
-          Quick View
-        </button>
+        <BaseModal
+          width={520}
+          clickerElement={
+            <button type="button" className="quick_view">
+              Quick View
+            </button>
+          }
+        >
+          <ProductQuickView product={product} />
+        </BaseModal>
         <img src={$$.withStorageUrl(product?.image?.filePath)} alt={product?.image?.name} onError={imageNotFound} />
       </div>
       <div className="content_wrapper">
@@ -43,7 +63,7 @@ const ProductCard: React.FC<IProps> = ({ className, product, handleCart }) => {
         <p className="price">
           <span
             className={cn('regular', {
-              'line-through': product?.discount,
+              'line-through mr-1': product?.discount,
             })}
           >
             {$$.withCurrency(product?.price)}
@@ -55,8 +75,8 @@ const ProductCard: React.FC<IProps> = ({ className, product, handleCart }) => {
           )}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default ProductCard;
+export default StandardProductCard;

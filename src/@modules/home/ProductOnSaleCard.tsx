@@ -35,7 +35,7 @@ const ProductOnSaleCard: React.FC<IProps> = ({ className, product, handleCart })
           <p className="block text-[var(--color-primary)]">
             <span
               className={cn({
-                'line-through text-xs': product?.discount,
+                'line-through text-xs mr-1': product?.discount,
               })}
             >
               {$$.withCurrency(product?.price)}

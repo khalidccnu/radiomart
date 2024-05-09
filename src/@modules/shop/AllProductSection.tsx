@@ -4,7 +4,7 @@ import { messages } from '@lib/constant';
 import { addCart, removeCart } from '@lib/redux/cart/cartSlice';
 import { useAppDispatch } from '@lib/redux/hooks';
 import { $$, cn } from '@lib/utils';
-import ProductCard from '@modules/ProductCard';
+import StandardProductCard from '@modules/home/StandardProductCard';
 import type { PaginationProps } from 'antd';
 import { Pagination, message } from 'antd';
 import { ClassValue } from 'clsx';
@@ -45,8 +45,8 @@ const AllProductSection: React.FC<IProps> = ({ className, products }) => {
       {messageHolder}
       <div className="container">
         <div className="wrapper">
-          {products?.data?.map((product) => (
-            <ProductCard key={product?._id} product={product} handleCart={handleCart} />
+          {products?.data?.map((product, idx) => (
+            <StandardProductCard key={product?._id} idx={idx} product={product} handleCart={handleCart} />
           ))}
         </div>
         <Pagination

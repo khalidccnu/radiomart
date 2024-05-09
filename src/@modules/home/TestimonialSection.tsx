@@ -17,8 +17,8 @@ const TestimonialSection: React.FC<IProps> = ({ className }) => {
           We shared our past customers review that describes how our products or service helped them.
         </p>
         <div className="wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-          {testimonialMocData?.map((testimonial) => (
-            <TestimonialCard key={testimonial?._id} testimonial={testimonial} />
+          {testimonialMocData?.map((testimonial, idx) => (
+            <TestimonialCard key={testimonial?._id} idx={idx} testimonial={testimonial} />
           ))}
         </div>
       </div>
