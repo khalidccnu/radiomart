@@ -1,4 +1,5 @@
 import { paths } from '@lib/constant';
+import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa6';
 
 const Header = () => {
@@ -25,8 +26,10 @@ const Header = () => {
               </li>
             </ul>
           </li>
-          <li className="header_item currency">USD</li>
-          <li className="header_item track_order">Track My Order</li>
+          <li className="header_item currency">BDT</li>
+          <li className="header_item track_order">
+            <Link href={paths.trackOrder}>Track My Order</Link>
+          </li>
         </ul>
       </div>
     </header>

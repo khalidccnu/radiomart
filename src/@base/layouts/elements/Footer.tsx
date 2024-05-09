@@ -1,4 +1,4 @@
-import { imagePaths } from '@lib/constant';
+import { imagePaths, paths } from '@lib/constant';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { FaEnvelope, FaFacebook, FaInstagram, FaLocationDot, FaPhone, FaTwitter } from 'react-icons/fa6';
@@ -22,17 +22,17 @@ const Footer = () => {
             </div>
             <ul className="social_links_wrapper">
               <li className="social_link">
-                <a href="#">
+                <a target="_blank" href={paths.socialLink.facebook}>
                   <FaFacebook />
                 </a>
               </li>
               <li className="social_link">
-                <a href="#">
+                <a target="_blank" href={paths.socialLink.instagram}>
                   <FaInstagram />
                 </a>
               </li>
               <li className="social_link">
-                <a href="#">
+                <a target="_blank" href={paths.socialLink.twitter}>
                   <FaTwitter />
                 </a>
               </li>
@@ -47,7 +47,7 @@ const Footer = () => {
               <h6 className="title">Help & Support</h6>
               <ul className="links_wrapper">
                 <li className="link">
-                  <Link href="#">Contact</Link>
+                  <Link href={paths.contact}>Contact</Link>
                 </li>
               </ul>
             </div>

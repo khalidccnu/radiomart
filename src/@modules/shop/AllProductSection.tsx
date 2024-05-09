@@ -5,7 +5,6 @@ import { addCart, removeCart } from '@lib/redux/cart/cartSlice';
 import { useAppDispatch } from '@lib/redux/hooks';
 import { $$, cn } from '@lib/utils';
 import StandardProductCard from '@modules/home/StandardProductCard';
-import type { PaginationProps } from 'antd';
 import { Pagination, message } from 'antd';
 import { ClassValue } from 'clsx';
 import { useRouter } from 'next/router';
@@ -15,13 +14,6 @@ interface IProps {
   className?: ClassValue;
   products: IProductsResponse;
 }
-
-const paginationItemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
-  if (type === 'prev') return <a>Previous</a>;
-  if (type === 'next') return <a>Next</a>;
-
-  return originalElement;
-};
 
 const AllProductSection: React.FC<IProps> = ({ className, products }) => {
   const router = useRouter();
@@ -59,7 +51,6 @@ const AllProductSection: React.FC<IProps> = ({ className, products }) => {
               query: $$.toCleanObject({ ...router.query, page, limit }),
             })
           }
-          itemRender={paginationItemRender}
         />
       </div>
     </section>

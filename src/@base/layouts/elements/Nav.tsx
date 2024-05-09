@@ -79,12 +79,12 @@ const Nav: React.FC<IProps> = ({ navRef, isCollapsed, setCollapsed }) => {
           </div>
           <ul className="icons_container">
             <li className="icon auth_icon">
-              <Link href="#">
+              <Link href={paths.signin}>
                 <FaRegUser size={22} />
               </Link>
             </li>
             <li className="icon wishlist_icon">
-              <Link href="#">
+              <Link href={paths.favorite}>
                 <FaRegHeart size={22} />
               </Link>
             </li>

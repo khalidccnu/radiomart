@@ -43,6 +43,7 @@
 
 // ant customization
 .ant-btn-primary {
+  height: auto !important;
   background-color: var(--color-primary);
   box-shadow: none !important;
 }

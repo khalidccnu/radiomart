@@ -1,5 +1,4 @@
 import LandingLayout from '@base/layouts/LandingLayout';
-import { publicPaths } from '@lib/constant';
 import { Providers } from '@lib/context';
 import '@styles/index.scss';
 import type { AppProps } from 'next/app';
@@ -13,7 +12,7 @@ const roboto = Roboto({
   variable: '--font-roboto',
 });
 
-const App = ({ router, Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Providers nextFont={roboto}>
       <Head>
@@ -21,11 +20,9 @@ const App = ({ router, Component, pageProps }: AppProps) => {
         <meta name="description" content="RadioMart is the largest e-Commerce platform in Bangladesh." />
       </Head>
       <NextNProgress color="var(--color-primary)" height={3} options={{ showSpinner: false }} />
-      {publicPaths.includes(router.pathname) ? (
-        <LandingLayout>
-          <Component {...pageProps} />
-        </LandingLayout>
-      ) : null}
+      <LandingLayout>
+        <Component {...pageProps} />
+      </LandingLayout>
     </Providers>
   );
 };
