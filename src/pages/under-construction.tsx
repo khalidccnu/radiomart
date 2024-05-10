@@ -10,7 +10,7 @@ const UnderConstructionPage = () => {
 
   return (
     <PageWrapper title="Under Construction">
-      <section className="under_construction_section">
+      <section className="under_construction_section py-14">
         <div className="container">
           <div className="wrapper">
             <div className="image_container">
@@ -19,7 +19,11 @@ const UnderConstructionPage = () => {
             <div className="content_wrapper">
               <h1 className="title">Under Construction</h1>
               <p className="description">We will be back very soon.</p>
-              <Button type="primary" icon={<MdHome size={24} />} onClick={() => router.push(paths.root)}>
+              <Button
+                type="primary"
+                icon={<MdHome size={24} className="-mb-1" />}
+                onClick={() => router.push(paths.root)}
+              >
                 Go Back to Home
               </Button>
             </div>

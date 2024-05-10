@@ -19,7 +19,7 @@ const TrackOrderSection: React.FC<IProps> = ({ className }) => {
   return (
     <section className={cn('track_order_section', className)}>
       <div className="container">
-        <div className="wrapper">
+        <div className="wrapper max-w-3xl mx-auto">
           <div className="form_wrapper">
             <Form layout="vertical" form={formInstance} onFinish={() => setProgressSteps(true)}>
               <Form.Item
@@ -33,7 +33,12 @@ const TrackOrderSection: React.FC<IProps> = ({ className }) => {
               >
                 <Space.Compact style={{ width: '100%' }}>
                   <Input placeholder="Order ID" />
-                  <Button type="primary" htmlType="submit" icon={<BsSearch size={24} />} className="!px-5 !w-auto" />
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    icon={<BsSearch size={24} className="-mb-1" />}
+                    className="!px-5 !w-auto"
+                  />
                 </Space.Compact>
               </Form.Item>
             </Form>

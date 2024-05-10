@@ -65,10 +65,11 @@ const RecommendedProductSection: React.FC<IProps> = ({ className, data }) => {
                 disableOnInteraction: false,
               }}
               coverflowEffect={{
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 2.5,
+                // rotate: 0,
+                // stretch: 0,
+                // depth: 100,
+                // modifier: 2.5,
+                slideShadows: false,
               }}
               breakpoints={{
                 640: {

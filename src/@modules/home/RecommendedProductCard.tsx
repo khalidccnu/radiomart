@@ -32,7 +32,7 @@ const RecommendedProductCard: React.FC<IProps> = ({ className, product, handleCa
           onError={imageNotFound}
         />
       </div>
-      <div className="hidden group-[.swiper-slide-active]:block px-3 mt-5 text-center space-y-1">
+      <div className="hidden group-[.swiper-slide-active]:block px-3 mt-5 text-center space-y-1 pb-2">
         <h3 className="font-semibold line-clamp-1">{product?.name}</h3>
         <p className="block text-[var(--color-primary)]">
           <span
@@ -48,7 +48,12 @@ const RecommendedProductCard: React.FC<IProps> = ({ className, product, handleCa
             </span>
           )}
         </p>
-        <Button type="primary" icon={<FaCartPlus />} onClick={() => handleCart(isCart, product?._id)} disabled={isCart}>
+        <Button
+          type="primary"
+          icon={<FaCartPlus className="-mb-1" />}
+          onClick={() => handleCart(isCart, product?._id)}
+          disabled={isCart}
+        >
           Add to cart
         </Button>
       </div>

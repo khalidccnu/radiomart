@@ -10,7 +10,7 @@ const NotFoundPage = () => {
 
   return (
     <PageWrapper title="404">
-      <section className="404_section not_found_section">
+      <section className="404_section not_found_section py-14">
         <div className="container">
           <div className="404_wrapper not_found_wrapper">
             <div className="image_container">
@@ -19,7 +19,11 @@ const NotFoundPage = () => {
             <div className="content_wrapper">
               <h1 className="title">Page Not Found</h1>
               <p className="description">We couldn't find the page you were looking for</p>
-              <Button type="primary" icon={<MdHome size={24} />} onClick={() => router.push(paths.root)}>
+              <Button
+                type="primary"
+                icon={<MdHome size={24} className="-mb-1" />}
+                onClick={() => router.push(paths.root)}
+              >
                 Go Back to Home
               </Button>
             </div>

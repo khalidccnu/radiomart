@@ -48,7 +48,12 @@ const ProductOnSaleCard: React.FC<IProps> = ({ className, product, handleCart })
           </p>
           {product?.discount && <Tag color="warning">Get {product?.discount_percentage}% Off</Tag>}
         </div>
-        <Button type="primary" icon={<FaCartPlus />} onClick={() => handleCart(isCart, product?._id)} disabled={isCart}>
+        <Button
+          type="primary"
+          icon={<FaCartPlus className="-mb-1" />}
+          onClick={() => handleCart(isCart, product?._id)}
+          disabled={isCart}
+        >
           Add to cart
         </Button>
       </div>

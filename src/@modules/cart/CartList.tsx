@@ -99,9 +99,7 @@ const CartList = () => {
           cancelText="No"
           okButtonProps={{ danger: true }}
         >
-          <Button danger>
-            <FaTrash />
-          </Button>
+          <Button icon={<FaTrash className="-mb-1" />} danger />
         </Popconfirm>
       ),
     },

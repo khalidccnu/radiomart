@@ -1,6 +1,7 @@
 import { imagePaths, paths } from '@lib/constant';
+import { useAppSelector } from '@lib/redux/hooks';
 import { $$, cn } from '@lib/utils';
-import { Grid } from 'antd';
+import { Badge, Grid } from 'antd';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -31,6 +32,7 @@ const navLinks = [
 const Nav: React.FC<IProps> = ({ navRef, isCollapsed, setCollapsed }) => {
   const pathname = usePathname();
   const screens = Grid.useBreakpoint();
+  const { cart } = useAppSelector((store) => store.cartSlice);
 
   return (
     <nav ref={navRef}>
@@ -79,18 +81,20 @@ const Nav: React.FC<IProps> = ({ navRef, isCollapsed, setCollapsed }) => {
           </div>
           <ul className="icons_container">
             <li className="icon auth_icon">
-              <Link href={paths.underConstruction}>
+              <Link className="inline-block" href={paths.underConstruction}>
                 <FaRegUser size={22} />
               </Link>
             </li>
             <li className="icon wishlist_icon">
-              <Link href={paths.favorite}>
+              <Link className="inline-block" href={paths.favorite}>
                 <FaRegHeart size={22} />
               </Link>
             </li>
             <li className="icon bag_icon">
-              <Link href={paths.cart}>
-                <FaBagShopping size={22} />
+              <Link className="inline-block" href={paths.cart}>
+                <Badge size="small" count={cart?.length} color="var(--color-primary)" className="!text-inherit">
+                  <FaBagShopping size={22} />
+                </Badge>
               </Link>
             </li>
           </ul>

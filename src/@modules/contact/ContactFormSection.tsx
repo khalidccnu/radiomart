@@ -74,7 +74,7 @@ const ContactFormSection: React.FC<IProps> = ({ className }) => {
                       type="primary"
                       htmlType="submit"
                       size="large"
-                      icon={<FaPaperPlane size={24} />}
+                      icon={<FaPaperPlane size={24} className="-mb-1" />}
                       className="w-full"
                     >
                       Send Message
