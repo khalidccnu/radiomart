@@ -28,7 +28,7 @@ const Header = () => {
           </li>
           <li className="header_item currency">BDT</li>
           <li className="header_item track_order">
-            <Link href={paths.trackOrder}>Track My Order</Link>
+            <Link href={paths.trackOrder}>Track Order</Link>
           </li>
         </ul>
       </div>

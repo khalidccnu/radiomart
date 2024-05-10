@@ -1,7 +1,6 @@
 export const paths = {
   root: '/',
   shop: '/shop',
-  about: '/about',
   contact: '/contact',
   cart: '/cart',
   checkout: '/checkout',

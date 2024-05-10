@@ -69,15 +69,17 @@ const ContactFormSection: React.FC<IProps> = ({ className }) => {
                   </Form.Item>
                 </Col>
                 <Col xs={24}>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    size="large"
-                    icon={<FaPaperPlane size={24} />}
-                    className="w-full"
-                  >
-                    Send Message
-                  </Button>
+                  <Form.Item>
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      size="large"
+                      icon={<FaPaperPlane size={24} />}
+                      className="w-full"
+                    >
+                      Send Message
+                    </Button>
+                  </Form.Item>
                 </Col>
               </Row>
             </Form>

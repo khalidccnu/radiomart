@@ -23,8 +23,8 @@ const navLinks = [
     path: $$.appendPagination(paths.shop, 1, 8),
   },
   {
-    name: 'about',
-    path: paths.about,
+    name: 'contact',
+    path: paths.contact,
   },
 ];
 

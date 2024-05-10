@@ -14,7 +14,7 @@ const BaseHeroWrapper: React.FC<IProps> = ({ title, breadcrumb }) => {
     >
       <div className="container h-full">
         <div className="flex flex-col justify-center items-center h-full">
-          <h2 className="font-bold text-4xl text-[var(--color-white)]">{title}</h2>
+          <h2 className="capitalize font-bold text-4xl text-[var(--color-white)]">{title}</h2>
           <Breadcrumb className="mt-5" items={breadcrumb} />
         </div>
       </div>

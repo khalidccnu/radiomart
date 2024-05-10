@@ -217,9 +217,11 @@ const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
               </Col>
               {/* <Col xs={24}></Col> */}
               <Col xs={24} className="text-center">
-                <Button type="primary" size="large" htmlType="submit">
-                  Complete Order
-                </Button>
+                <Form.Item>
+                  <Button type="primary" size="large" htmlType="submit">
+                    Complete Order
+                  </Button>
+                </Form.Item>
               </Col>
             </Row>
           </Form>
