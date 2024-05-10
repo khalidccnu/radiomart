@@ -78,3 +78,20 @@
     opacity: 0;
   }
 }
+
+// breadcrumb
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  .breadcrumb_link {
+    color: var(--color-gray-300);
+    text-transform: capitalize;
+    &.active {
+      color: var(--color-gray-200);
+    }
+  }
+  .breadcrumb_separator {
+    color: var(--color-gray-300);
+  }
+}
