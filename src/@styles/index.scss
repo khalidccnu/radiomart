@@ -12,6 +12,15 @@
 @import 'swiper/css/autoplay';
 @import 'swiper/css/effect-coverflow';
 
+@layer components {
+  .spinner {
+    display: block;
+    .ant-spin-dot-item {
+      background-color: var(--color-primary);
+    }
+  }
+}
+
 // Scrollbar Customize
 ::-webkit-scrollbar {
   width: 0.25rem;

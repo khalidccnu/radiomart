@@ -6,19 +6,27 @@ import { $$, cn, imageNotFound } from '@lib/utils';
 import { ClassValue } from 'clsx';
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
-import { BsBasket2, BsFillBasket2Fill, BsHeart } from 'react-icons/bs';
+import { BsBasket2, BsFillBasket2Fill, BsHeart, BsHeartFill } from 'react-icons/bs';
 import ProductQuickView from './ProductQuickView';
 
 interface IProps {
   idx: number;
   className?: ClassValue;
   product: IProduct;
+  handleFavorite: (isFavorite: boolean, id: TId) => void;
   handleCart: (isCart: boolean, id: TId) => void;
 }
 
-const StandardProductCard: React.FC<IProps> = ({ idx, className, product, handleCart }) => {
+const StandardProductCard: React.FC<IProps> = ({ idx, className, product, handleFavorite, handleCart }) => {
+  const [isFavorite, setFavorite] = useState(false);
   const [isCart, setCart] = useState(false);
+  const { favorite } = useAppSelector((store) => store.favoriteSlice);
   const { cart } = useAppSelector((store) => store.cartSlice);
+
+  useEffect(() => {
+    const itemIdx = favorite.findIndex((item) => item.id === product?._id);
+    itemIdx !== -1 ? setFavorite(true) : setFavorite(false);
+  }, [favorite, product?._id]);
 
   useEffect(() => {
     const itemIdx = cart.findIndex((item) => item.id === product?._id);
@@ -39,8 +47,8 @@ const StandardProductCard: React.FC<IProps> = ({ idx, className, product, handle
       <div className="image_container">
         {product?.discount && <span className="discount_badge">Get {product?.discount_percentage}% Off</span>}
         <div className="btn_container">
-          <button type="button" className="wish_icon">
-            <BsHeart size={20} />
+          <button type="button" className="wish_icon" onClick={() => handleFavorite(isFavorite, product?._id)}>
+            {isFavorite ? <BsHeartFill size={20} /> : <BsHeart size={20} />}
           </button>
           <button type="button" className="cart_icon" onClick={() => handleCart(isCart, product?._id)}>
             {isCart ? <BsFillBasket2Fill size={20} /> : <BsBasket2 size={20} />}

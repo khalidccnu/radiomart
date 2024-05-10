@@ -2,6 +2,7 @@ import { IProduct } from '@apis/shop/interfaces';
 import { TId } from '@base/interfaces';
 import { messages } from '@lib/constant';
 import { addCart, removeCart } from '@lib/redux/cart/cartSlice';
+import { addFavorite, removeFavorite } from '@lib/redux/favorite/favoriteSlice';
 import { useAppDispatch } from '@lib/redux/hooks';
 import { cn } from '@lib/utils';
 import { message } from 'antd';
@@ -17,6 +18,16 @@ interface IProps {
 const PopularProductSection: React.FC<IProps> = ({ className, data }) => {
   const dispatch = useAppDispatch();
   const [messageApi, messageHolder] = message.useMessage();
+
+  const handleFavorite = (isFavorite: boolean, id: TId) => {
+    if (isFavorite) {
+      dispatch(removeFavorite({ id }));
+      messageApi.success(messages.favorite.remove);
+    } else {
+      dispatch(addFavorite({ id }));
+      messageApi.success(messages.favorite.add);
+    }
+  };
 
   const handleCart = (isCart: boolean, id: TId) => {
     const short = true;
@@ -37,7 +48,13 @@ const PopularProductSection: React.FC<IProps> = ({ className, data }) => {
         <h2 className="section_title">Most Popular Products</h2>
         <div className="wrapper">
           {data?.map((elem, idx) => (
-            <StandardProductCard key={elem?._id} idx={idx} product={elem} handleCart={handleCart} />
+            <StandardProductCard
+              key={elem?._id}
+              idx={idx}
+              product={elem}
+              handleFavorite={handleFavorite}
+              handleCart={handleCart}
+            />
           ))}
         </div>
       </div>

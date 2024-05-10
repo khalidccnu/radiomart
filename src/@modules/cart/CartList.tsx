@@ -19,6 +19,8 @@ const CartList = () => {
   const cartBulkFn = CartHook.useBulkFind({
     options: {
       ids: true,
+      page: 1,
+      limit: 20,
     },
     config: {
       onSuccess(res) {
