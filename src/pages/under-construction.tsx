@@ -5,20 +5,20 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { MdHome } from 'react-icons/md';
 
-const NotFoundPage = () => {
+const UnderConstructionPage = () => {
   const router = useRouter();
 
   return (
-    <PageWrapper title="404">
-      <section className="404_section not_found_section">
+    <PageWrapper title="Under Construction">
+      <section className="under_construction_section">
         <div className="container">
-          <div className="404_wrapper not_found_wrapper">
+          <div className="wrapper">
             <div className="image_container">
-              <Image height={0} width={0} sizes="100vw" src="/images/404.svg" alt="404" />
+              <Image height={0} width={0} sizes="100vw" src="/images/under_construction.svg" alt="" />
             </div>
             <div className="content_wrapper">
-              <h1 className="title">Page Not Found</h1>
-              <p className="description">We couldn't find the page you were looking for</p>
+              <h1 className="title">Under Construction</h1>
+              <p className="description">We will be back very soon.</p>
               <Button type="primary" icon={<MdHome size={24} />} onClick={() => router.push(paths.root)}>
                 Go Back to Home
               </Button>
@@ -30,4 +30,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+export default UnderConstructionPage;

@@ -1,0 +1,35 @@
+.under_construction_section {
+  min-height: 100vh;
+  .wrapper {
+    .image_container {
+      max-width: 12rem;
+      margin-inline: auto;
+      @include md {
+        max-width: 18rem;
+      }
+      @include lg {
+        max-width: 36rem;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+    .content_wrapper {
+      margin-top: 1rem;
+      text-align: center;
+      @include md {
+        margin-top: 2rem;
+      }
+      .title {
+        color: var(--color-gray-900);
+        @apply text-2xl font-bold;
+      }
+      .description {
+        margin-block: 0.5rem;
+        color: var(--color-gray-500);
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ export const paths = {
   trackOrder: '/track-order',
   favorite: '/favorite',
   signin: '/signin',
+  underConstruction: '/under-construction',
   socialLink: {
     facebook: 'https://www.facebook.com',
     instagram: 'https://www.instagram.com',
