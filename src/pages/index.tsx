@@ -10,7 +10,7 @@ import ProductOnSaleSection from '@modules/home/ProductOnSaleSection';
 import RecommendedProductSection from '@modules/home/RecommendedProductSection';
 import TestimonialSection from '@modules/home/TestimonialSection';
 import WhatOfferSection from '@modules/home/WhatOfferSection';
-import { GetStaticProps, NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 
 interface IProps {
   latestProducts: IProductsResponse;
@@ -23,7 +23,7 @@ const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
       <HeroBannerSection />
       <LatestProductSection className="py-14" data={latestProducts?.data} />
       <WhatOfferSection className="py-14" />
-      <PopularProductSection className="py-14" data={popularProducts?.data} />
+      <PopularProductSection className="py-14" initialProductsResponse={popularProducts} />
       <RecommendedProductSection className="py-14" data={latestProducts?.data} />
       <TestimonialSection className="py-14" />
       <FunFactSection className="pb-14" />
@@ -35,7 +35,7 @@ const HomePage: NextPage<IProps> = ({ latestProducts, popularProducts }) => {
 
 export default HomePage;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps<IProps> = async () => {
   const latestProductsPromise = ProductsService.find({
     page: 1,
     limit: 8,
@@ -61,7 +61,5 @@ export const getStaticProps: GetStaticProps = async () => {
       latestProducts: latestProductsQuery,
       popularProducts: popularProductsQuery,
     },
-
-    revalidate: 60,
   };
 };
