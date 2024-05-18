@@ -24,6 +24,7 @@ const BaseModal: React.FC<IProps> = ({ width = 768, className, clickerElement, c
         closeIcon={<RiCloseFill size={24} />}
         rootClassName="base_modal"
         classNames={{ content: className, body: 'mt-8' }}
+        data-lenis-prevent
       >
         {children}
       </Modal>
