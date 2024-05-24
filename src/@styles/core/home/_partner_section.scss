@@ -7,9 +7,6 @@
     &:hover {
       .images_wrapper {
         animation-play-state: paused;
-        &:last-child {
-          animation-play-state: paused;
-        }
       }
     }
     .images_wrapper {
@@ -17,12 +14,7 @@
       align-items: center;
       gap: 45px;
       padding-left: 45px;
-      animation: first_scroll var(--partner-anm-time) linear infinite;
-      animation-delay: calc(var(--partner-anm-time) * -1);
-      &:last-child {
-        animation: second_scroll var(--partner-anm-time) linear infinite;
-        animation-delay: calc(var(--partner-anm-time) / -2);
-      }
+      animation: scroll var(--partner-anm-time) linear infinite;
       .image_container {
         width: 125px;
         @include md {
@@ -38,20 +30,11 @@
   }
 }
 
-@keyframes first_scroll {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes second_scroll {
+@keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-200%);
+    transform: translateX(-100%);
   }
 }
