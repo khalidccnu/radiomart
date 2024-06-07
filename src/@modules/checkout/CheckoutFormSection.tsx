@@ -40,7 +40,7 @@ const CheckoutFormSection: React.FC<IProps> = ({ className }) => {
                   <div className="flex flex-col md:flex-row md:justify-between">
                     <h3 className="title">Contact Information</h3>
                     <p className="have_account">
-                      Already have an account? <Link href={paths.underConstruction}>Sign in</Link>
+                      Already have an account? <Link href={paths.signin}>Sign in</Link>
                     </p>
                   </div>
                 </div>

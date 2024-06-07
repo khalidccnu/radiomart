@@ -81,7 +81,7 @@ const Nav: React.FC<IProps> = ({ navRef, isCollapsed, setCollapsed }) => {
           </div>
           <ul className="icons_container">
             <li className="icon auth_icon">
-              <Link className="inline-block" href={paths.underConstruction}>
+              <Link className="inline-block" href={paths.signin}>
                 <FaRegUser size={22} />
               </Link>
             </li>

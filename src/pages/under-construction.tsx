@@ -22,9 +22,9 @@ const UnderConstructionPage = () => {
               <Button
                 type="primary"
                 icon={<MdHome size={24} className="-mb-1" />}
-                onClick={() => router.push(paths.root)}
+                onClick={() => router.push(router.query?.requestUrl ? String(router.query.requestUrl) : paths.root)}
               >
-                Go Back to Home
+                {` Go Back to ${router.query?.requestUrl ? 'Destination' : 'Home'}`}
               </Button>
             </div>
           </div>
